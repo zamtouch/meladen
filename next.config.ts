@@ -6,6 +6,9 @@ import { fileURLToPath } from 'url'
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    '/': ['./public/visuals/hero_home/**/*'],
+  },
   agentRules: false,
   devIndicators: false,
   images: {

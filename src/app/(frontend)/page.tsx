@@ -1,5 +1,6 @@
 import { readdir } from 'node:fs/promises'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import Link from 'next/link'
 
@@ -35,11 +36,12 @@ const serviceIcons = [
 
 async function homeHeroSlides() {
   try {
-    const names = await readdir(path.join(process.cwd(), 'public', 'uploads', 'hero_home'))
+    const heroDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../../public/visuals/hero_home')
+    const names = await readdir(heroDir)
     return names
       .filter((name) => /\.(jpe?g|png|webp|avif)$/i.test(name))
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-      .map((name) => `/uploads/hero_home/${encodeURIComponent(name)}`)
+      .map((name) => `/visuals/hero_home/${encodeURIComponent(name)}`)
   } catch {
     return []
   }
