@@ -667,7 +667,23 @@ textarea { min-height: 140px; resize: vertical; }
 .modal-back { position: fixed; inset: 0; background: rgba(7, 24, 51, 0.72); display: grid; place-items: center; padding: 1rem; z-index: 40; }
 .modal { width: min(560px, 100%); background: #fff; color: var(--ink); border-radius: 22px; padding: 1.6rem; }
 .modal p { color: var(--ink); }
-.skeleton { height: 16px; border-radius: 999px; background: #ece8e2; margin-bottom: 12px; }
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+.boot img {
+  width: min(168px, 42vw);
+  height: auto;
+  animation: logo-blink 1.15s ease-in-out infinite;
+}
+@keyframes logo-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 #request-quote, #logistics, #operating, #planned, [id^="station-"] { scroll-margin-top: 110px; }
 
@@ -715,6 +731,7 @@ textarea { min-height: 140px; resize: vertical; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .boot img { animation: none; }
   .hero-slide { transition: none; }
   .hero-slide img { animation: none !important; transform: none; }
 }
