@@ -69,38 +69,31 @@ body:has(.gv) { background: #fff; }
 .gv-menu { display: none; background: transparent; border: 1px solid #d5dece; border-radius: 999px; padding: 0.4rem 0.75rem; font-weight: 700; cursor: pointer; }
 .gv-hero {
   height: 85vh;
+  min-height: 740px;
   position: relative;
   background: #061833;
   border-radius: 0 0 36px 36px;
   margin-bottom: 108px;
 }
-.gv-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.42) 46%, rgba(0,0,0,.16) 100%);
-}
 .gv-hero .hero-slides { overflow: hidden; border-radius: inherit; }
 .gv-hero .hero-slide.is-hold { z-index: 1; }
 .gv-hero .hero-slide.is-active { z-index: 2; }
-.gv-hero-copy { position: absolute; left: var(--edge); top: 72px; max-width: 555px; z-index: 2; }
+.gv-hero-copy { position: absolute; left: var(--edge); top: 64px; max-width: min(760px, calc(100% - 320px)); z-index: 2; }
 .gv-eye { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: var(--forest); display: block; }
 .gv-eye-hero { margin-bottom: 16px; color: rgba(255,255,255,.82); }
 .gv-hero h1 {
   font-family: var(--font-manrope), Manrope, sans-serif;
-  font-size: clamp(44px, 4.6vw, 64px);
-  line-height: 1.05;
-  letter-spacing: -2.4px;
+  font-size: clamp(48px, 5.8vw, 84px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
   font-weight: 800;
-  max-width: 560px;
+  max-width: 100%;
   margin: 0 0 18px;
   color: #fff;
+  text-wrap: balance;
 }
 .gv-hero h1 em { color: #05B9EC; font-style: normal; }
-.gv-hero-copy > p { font-size: 16px; line-height: 1.55; max-width: 420px; margin: 0 0 22px; color: rgba(255,255,255,.9); }
+.gv-hero-copy > p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.55; max-width: 34rem; margin: 0 0 22px; color: rgba(255,255,255,.9); }
 .gv-pill {
   display: inline-flex;
   align-items: center;
@@ -443,7 +436,6 @@ body:has(.gv) { background: #fff; }
 
 @media (max-width: 1100px) {
   .gv-links { gap: 16px; }
-  .gv-hero h1 { font-size: 52px; }
   .gv-values { grid-template-columns: 1fr 1fr; }
   .gv-sol-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -471,7 +463,7 @@ body:has(.gv) { background: #fff; }
   .gv-hero { height: auto; min-height: 0; margin-bottom: 28px; padding: 28px var(--gutter) 28px; display: flex; flex-direction: column; gap: 22px; }
   .gv-supply-parallax { background-attachment: scroll; min-height: 52vh; }
   .gv-hero-copy { position: static; left: auto; right: auto; top: auto; max-width: none; }
-  .gv-hero h1 { font-size: clamp(32px, 9vw, 40px); letter-spacing: -1.2px; }
+  .gv-hero h1 { font-size: clamp(40px, 11vw, 68px); letter-spacing: -0.04em; }
   .gv-pill { max-width: 100%; white-space: normal; }
   .gv-supply-parallax h2 { font-size: clamp(34px, 9vw, 56px); }
   .gv-news-head { flex-wrap: wrap; align-items: flex-start; }
